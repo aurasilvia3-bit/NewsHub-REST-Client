@@ -1,0 +1,53 @@
+{
+  "info": {
+    "name": "NewsHub REST Client - NewsAPI",
+    "description": "Pengujian endpoint NewsAPI.org untuk praktikum System Testing. Isi API key melalui collection variable apiKey.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "apiKey", "value": "ISI_API_KEY_ANDA", "type": "string" },
+    { "key": "baseUrl", "value": "https://newsapi.org/v2", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "Get Top Headlines",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "X-Api-Key", "value": "{{apiKey}}" },
+          { "key": "Accept", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/top-headlines?country=us&pageSize=10",
+          "host": ["{{baseUrl}}"],
+          "path": ["top-headlines"],
+          "query": [
+            { "key": "country", "value": "us" },
+            { "key": "pageSize", "value": "10" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Search News - Technology",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "X-Api-Key", "value": "{{apiKey}}" },
+          { "key": "Accept", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/everything?q=technology&language=en&sortBy=publishedAt&pageSize=10",
+          "host": ["{{baseUrl}}"],
+          "path": ["everything"],
+          "query": [
+            { "key": "q", "value": "technology" },
+            { "key": "language", "value": "en" },
+            { "key": "sortBy", "value": "publishedAt" },
+            { "key": "pageSize", "value": "10" }
+          ]
+        }
+      }
+    }
+  ]
+}
